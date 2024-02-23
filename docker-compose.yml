@@ -1,0 +1,47 @@
+version: '3.8'
+services:
+  website:
+    image: vbr-web
+    restart: always
+    ports:
+      - "80:80"
+    volumes:
+      - web_data:/usr/share/nginx/html/assets
+
+  api:
+    image: vbr-api
+    restart: always
+    ports:
+      - "3000:3000"
+    volumes:
+      - web_data:/usr/src/app/uploads
+    networks:
+      - backend
+    environment:
+      - PORT=3000
+      - NODE_ENV=production
+      - DB_HOST=database
+      - DB_PORT=27017
+      - DB_USER=admin
+      - DB_PASSWORD=root
+      - STORAGE_PATH=./uploads
+      
+  database:
+    image: mongo:latest
+    restart: always
+    ports:
+      - '8000:27017'
+    volumes:
+      - db_data:/data/db
+    networks:
+      - backend
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=root
+
+volumes:
+  web_data:
+  db_data:
+
+networks:
+  backend:
