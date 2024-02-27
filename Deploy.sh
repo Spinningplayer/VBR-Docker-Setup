@@ -11,4 +11,4 @@ echo "starting containers"
 docker-compose up -d
 echo "Populating web_data"
 CONTAINER_ID=$(docker ps -aqf "ancestor=vbr-web")
-docker cp VeryBerryRecordsWebsite/VBR-App/src/assets/* ${CONTAINER_ID}:/usr/share/nginx/html/assets/
+docker cp VeryBerryRecordsWebsite/VBR-App/src/assets/ ${CONTAINER_ID}:/usr/share/nginx/html/assets/
