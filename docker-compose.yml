@@ -27,7 +27,7 @@ services:
       - STORAGE_PATH=./uploads
       
   database:
-    image: mongo:latest
+    image: mongo:4.4.18
     restart: always
     ports:
       - '8000:27017'
