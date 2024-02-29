@@ -1,3 +1,4 @@
+git reset --hard
 echo "Pulling Setup scripts"
 git pull
 echo "Pulling API"
