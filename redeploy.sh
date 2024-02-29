@@ -6,6 +6,7 @@ git pull
 echo "Pulling Website"
 cd ../VeryBerryRecordsWebsite/
 git pull
+cd ..
 echo "Building Docker images"
 docker build -t vbr-api VeryBerryAPI/
 docker build -t vbr-web VeryBerryRecordsWebsite/VBR-App/
