@@ -1,3 +1,5 @@
+echo "Pulling Setup scripts"
+git pull
 echo "Pulling API"
 cd VeryBerryAPI/
 git pull
